@@ -1,14 +1,13 @@
 # test_atg_world.py
-
-import requests
 import unittest
+from selenium import webdriver
 
-class TestATGWorldWebsite(unittest.TestCase):
-
-    def test_website_load(self):
-        url = "https://atg.world"
-        response = requests.get(url)
-        self.assertEqual(response.status_code, 200)
+class TestATGWorld(unittest.TestCase):
+    def test_website_loading(self):
+        driver = webdriver.Chrome()  # Use appropriate driver
+        driver.get("https://atg.world")
+        self.assertEqual(driver.title, "ATG World")  # Adjust based on the actual title
+        driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
